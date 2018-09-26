@@ -1,5 +1,5 @@
 function [im,im_blur,im_noise] = ImageGeneration(n, imageX, imageY, ...
-centerX,centerY,r,intensity,blur_level,noise_mean,noise_sigma)
+centerX,centerY,r,intensity,blur,mean,sigma)
 
 [columns, rows] = meshgrid(1:imageY,1:imageX);
 
@@ -11,14 +11,14 @@ for ii = 1:n
     im = min(im,im_temp);
 end
 
-if blur_level > 0
-im_blur = imgaussfilt(im,blur_level);
+if blur > 0
+im_blur = imgaussfilt(im,blur);
 else
 im_blur = [];
 end
 
-if noise_sigma > 0
-im_noise = imnoise(im,'gaussian',noise_mean,noise_sigma);
+if sigma > 0
+im_noise = imnoise(im,'gaussian',mean,sigma);
 else
 im_noise = [];
 end
