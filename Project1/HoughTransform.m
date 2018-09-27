@@ -1,4 +1,4 @@
-function [center,gradmode] = HoughTransform1(img,r,polar,pstd,thred,scale,n)
+function [center,gradmode] = HoughTransform(img,r,polar,pstd,thred,scale,n)
 
 [imageX,imageY] = size(img);
 [imgderx,imgdery] = Derivative(img,scale);
